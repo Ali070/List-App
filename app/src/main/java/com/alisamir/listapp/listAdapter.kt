@@ -13,12 +13,13 @@ import java.util.ArrayList
 class listAdapter(val listPersons:ArrayList<Person>): RecyclerView.Adapter<listAdapter.myViewHolder>() {
     inner class myViewHolder(val binding: ListItemBinding, val listen:onItemClickLstner) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(person:Person,position: Int){
+        fun bind(person:Person){
             binding.nameTV.text = person.name
             binding.numberTV.text = person.number
             Picasso.get().load(person.image).resize(100,100).into(binding.circleImageView)
             binding.deleteIV.setOnClickListener {
-                    listen.OnDelete(position)
+                    val location = adapterPosition
+                    listen.OnDelete(location)
 
             }
             binding.root.setOnClickListener {
@@ -41,7 +42,7 @@ class listAdapter(val listPersons:ArrayList<Person>): RecyclerView.Adapter<listA
 
     override fun onBindViewHolder(holder: listAdapter.myViewHolder, position: Int) {
         val person = Person(listPersons.get(position).name,listPersons.get(position).number,listPersons.get(position).image)
-        holder.bind(person,position)
+        holder.bind(person)
     }
 
     override fun getItemCount(): Int {
