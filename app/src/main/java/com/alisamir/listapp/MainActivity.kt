@@ -63,11 +63,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        /*adapter.seOnClickListner(object :listAdapter.onItemClickLstner{
+        adapter.seOnClickListner(object :listAdapter.onItemClickLstner{
             override fun OnEdit(position: Int) {
-                val person = personsList.get(position)
 
-            }*/
+            }
 
             override fun OnDelete(position: Int) {
                 val dialog = AlertDialog.Builder(this@MainActivity)
