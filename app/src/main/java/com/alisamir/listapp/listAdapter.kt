@@ -4,6 +4,7 @@ import com.alisamir.listapp.Model.Person
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.alisamir.listapp.databinding.ListItemBinding
 import com.squareup.picasso.Picasso
@@ -19,6 +20,9 @@ class listAdapter(val listPersons:ArrayList<Person>): RecyclerView.Adapter<listA
             binding.deleteIV.setOnClickListener {
                     listen.OnDelete(position)
 
+            }
+            binding.root.setOnClickListener {
+                Toast.makeText(binding.root.context,"Name: ${binding.nameTV.text} _ Number: ${binding.numberTV.text}",Toast.LENGTH_SHORT).show()
             }
         }
 
